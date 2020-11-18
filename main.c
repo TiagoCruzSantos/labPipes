@@ -119,42 +119,4 @@ int main()
             write(pipeP0P2[1], &sum, sizeof(int));
         }
     }
-    /*
-    // Lê x enviado pelo pipe e cria vetor randômico
-    if (P1 == 0) // Filho 1
-    {
-        close(pipeP0P1[1]);
-        int x = 0;
-        read(pipeP0P1[0], &x, sizeof(x));
-        printf("\nP1 na voz: x = %i\n", x);
-
-        int tamVetorP1 = rand() % 10 + 1;
-        int vetorRandP1[tamVetorP1];
-        printf("P1: Vetor randômico de tamanho %i:\n", tamVetorP1);
-        for (int i = 0; i < tamVetorP1; i++)
-        {
-            vetorRandP1[i] = rand() % x + 1;
-            printf("%i ", vetorRandP1[i]);
-        }
-        printf("\n");
-    }
-
-    // Envia MENSAGEM para filho através do pipe P0-P1
-    if (P1 > 0) // Pai
-    {
-        // Envia MENSAGEM no pipe P0-P1
-        const char *MENSAGEM = "Meu filho, crie e envie para o seu irmão um array de números inteiros com valores randômicos entre 1 e o valor enviado anteriormente. O tamanho do array também deve ser randômico, na faixa de 1 a 10.";
-        write(pipeP0P1[1], &MENSAGEM, sizeof(MENSAGEM));
-        printf("Parent (%d) sent to P1: %s\n", getpid(), MENSAGEM);
-    }
-
-    // Lê MENSAGEM do pai através do pipe P0-P1
-    if (P1 == 0) // Filho 1
-    {
-        close(pipeP0P1[1]);
-
-        char *mensagemPai = NULL;
-        read(pipeP0P1[0], &mensagemPai, sizeof(mensagemPai));
-        printf("\nP1 na voz: %s\n", mensagemPai);
-    }*/
 }

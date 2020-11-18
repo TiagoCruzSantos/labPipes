@@ -92,9 +92,10 @@ int main()
                 perror("Fork falhou");
             }
             if(P3 == 0){
-                int fileOut = open("PipePing.txt", O_CREAT, "w");
-                dup2(fileOut, 1);
-                if(execlp("ping", "ping", "-c", "5", "ufes.br") < 0){
+                int fileOut = open("PipePing.txt", O_WRONLY | O_TRUNC | O_CREAT, S_IRUSR | S_IRGRP | S_IWGRP | S_IWUSR);
+                dup2(fileOut, STDOUT_FILENO);
+                close(fileOut);
+                if(execlp("ping", "ping", "-c", "5", "ufes.br", NULL) < 0){
                     perror("erro");
                 }
             }

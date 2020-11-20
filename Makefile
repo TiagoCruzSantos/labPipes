@@ -1,4 +1,6 @@
-# Tiago da Cruz Santos
+# INTEGRANTES: Tiago da Cruz Santos
+# Atílio Antônio Dadalto
+# Vitor Ferraz Matos Brunoro
 
 OBJ      := obj
 SRC      := src

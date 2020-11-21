@@ -3,6 +3,7 @@
 #include <time.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <sys/wait.h>
 #include "include/utils.h"
 
 int main()
@@ -117,6 +118,11 @@ int main()
                 {
                     perror("erro");
                 }
+            }else{
+                int p1status;
+                int p2status;
+                waitpid(P1, &p1status, WUNTRACED);
+                waitpid(P2, &p2status, WUNTRACED);
             }
         }
         else // Filho 2
